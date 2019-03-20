@@ -26,6 +26,16 @@ public class Client {
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private List<Account> account;
 
+    public Client() {
+    }
+
+    public Client(String name, String address, int age, List<Account> account) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+        this.account = account;
+    }
+
     public int getClientId() {
         return clientId;
     }
