@@ -1,5 +1,8 @@
 package com.mdo.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -18,8 +21,9 @@ public class Account {
     @Column(name = "money_amount")
     private String moneyAmount;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "client_id")
+    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id", referencedColumnName = "client_id", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
     private Client client;
 
     public int getAccountId() {

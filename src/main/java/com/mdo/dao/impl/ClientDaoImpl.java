@@ -2,6 +2,7 @@ package com.mdo.dao.impl;
 
 import com.mdo.dao.ClientDao;
 import com.mdo.model.Client;
+import com.mdo.utils.HibernateSessionFactoryUtil;
 import com.mdo.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -41,6 +42,7 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public Client getClientById(Integer clientId) {
         Client client;
+        //ToDo change to HibernateSessionFactoryUtil
         Session session = HibernateUtil.createSessionFactory().openSession();
         session.beginTransaction();
         client = session.get(Client.class, clientId);
@@ -52,8 +54,8 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public List<Client> getAllClients() {
         List clients;
-        Session session = HibernateUtil.createSessionFactory().openSession();
-        clients = (List<Client>) session.createQuery("from Client").list();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        clients = (List<Client>) session.createQuery("From Client").list();
         session.close();
         return clients;
     }
