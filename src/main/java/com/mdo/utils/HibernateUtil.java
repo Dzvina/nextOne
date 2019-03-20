@@ -1,9 +1,9 @@
 package com.mdo.utils;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
 
@@ -13,8 +13,8 @@ public class HibernateUtil {
     public static final SessionFactory createSessionFactory() {
         Configuration configuration = new Configuration();
         configuration.configure();
-        serviceRegistry = new ServiceRegistryBuilder().applySettings(
-                configuration.getProperties()).buildServiceRegistry();
+        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
+                configuration.getProperties()).build();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         return sessionFactory;
     }
