@@ -4,8 +4,7 @@ import com.mdo.model.Client;
 import com.mdo.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +15,29 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
-    @RequestMapping(value = "/getAllClients", method = RequestMethod.GET)
+    @PostMapping(value = "/addClient")
+    public void addClient(Client client) {
+        clientService.addClient(client);
+    }
+
+    @PostMapping(value = "/editClient")
+    public void editClient(Client client) {
+        clientService.deleteClient(client);
+    }
+
+    @DeleteMapping(value = "/deleteClient")
+    public void deleteClient(Client client) {
+        clientService.deleteClient(client);
+    }
+
+    @GetMapping(value = "/getClientById/{clientId}")
+    public Client getClientById(@PathVariable Integer clientId) {
+        Client client = clientService.getClientById(clientId);
+        System.out.println(client);
+        return client;
+    }
+
+    @GetMapping(value = "/getAllClients")
     public List<Client> getAllClients() {
         List<Client> clients = clientService.getAllClients();
         System.out.println(clients);

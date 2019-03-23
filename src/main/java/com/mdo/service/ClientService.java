@@ -13,6 +13,22 @@ public class ClientService {
     @Autowired
     ClientDaoImpl clientDao;
 
+    public void addClient(Client client) {
+        clientDao.addClient(client);
+    }
+
+    public void editClient(Client client) {
+        clientDao.editClient(client);
+    }
+
+    public void deleteClient(Client client) {
+        clientDao.deleteClient(client);
+    }
+
+    public Client getClientById(Integer clientId) {
+        return clientDao.getClientById(clientId);
+    }
+
     public List<Client> getAllClients() {
         return clientDao.getAllClients();
     }

@@ -3,7 +3,6 @@ package com.mdo.dao.impl;
 import com.mdo.dao.ClientDao;
 import com.mdo.model.Client;
 import com.mdo.utils.HibernateSessionFactoryUtil;
-import com.mdo.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +13,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void addClient(Client client) {
-        Session session = HibernateUtil.createSessionFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(client);
         session.getTransaction().commit();
@@ -23,7 +22,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void editClient(Client client) {
-        Session session = HibernateUtil.createSessionFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(client);
         session.getTransaction().commit();
@@ -32,7 +31,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void deleteClient(Client client) {
-        Session session = HibernateUtil.createSessionFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(client);
         session.getTransaction().commit();
@@ -42,8 +41,7 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public Client getClientById(Integer clientId) {
         Client client;
-        //ToDo change to HibernateSessionFactoryUtil
-        Session session = HibernateUtil.createSessionFactory().openSession();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         session.beginTransaction();
         client = session.get(Client.class, clientId);
         session.close();
