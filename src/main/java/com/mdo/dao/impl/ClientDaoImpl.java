@@ -13,7 +13,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void addClient(Client client) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.save(client);
         session.getTransaction().commit();
@@ -22,7 +22,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void editClient(Client client) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.update(client);
         session.getTransaction().commit();
@@ -31,7 +31,7 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void deleteClient(Client client) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.delete(client);
         session.getTransaction().commit();
@@ -41,7 +41,7 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public Client getClientById(Integer clientId) {
         Client client;
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = getSession();
         session.beginTransaction();
         client = session.get(Client.class, clientId);
         session.close();
@@ -52,9 +52,13 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public List<Client> getAllClients() {
         List clients;
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Session session = getSession();
         clients = (List<Client>) session.createQuery("From Client").list();
         session.close();
         return clients;
+    }
+
+    private Session getSession() {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession();
     }
 }

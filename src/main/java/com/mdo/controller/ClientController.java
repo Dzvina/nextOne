@@ -16,17 +16,17 @@ public class ClientController {
     ClientService clientService;
 
     @PostMapping(value = "/addClient")
-    public void addClient(Client client) {
+    public void addClient(@RequestBody Client client) {
         clientService.addClient(client);
     }
 
     @PostMapping(value = "/editClient")
-    public void editClient(Client client) {
-        clientService.deleteClient(client);
+    public void editClient(@RequestBody Client client) {
+        clientService.editClient(client);
     }
 
     @DeleteMapping(value = "/deleteClient")
-    public void deleteClient(Client client) {
+    public void deleteClient(@RequestBody Client client) {
         clientService.deleteClient(client);
     }
 
