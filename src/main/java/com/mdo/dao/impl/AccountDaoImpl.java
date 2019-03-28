@@ -49,7 +49,7 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public List<Account> getAllaccounts() {
+    public List<Account> getAllAccounts() {
         List accounts;
         Session session = getSession();
         accounts = (List<Account>) session.createQuery("From Account").list();

@@ -30,7 +30,7 @@ public class AccountService {
     }
 
     public List<Account> getAllAccounts() {
-        return accountDao.getAllaccounts();
+        return accountDao.getAllAccounts();
     }
 
 }

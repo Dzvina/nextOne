@@ -14,5 +14,5 @@ public interface AccountDao {
 
     Account getAccountById(Integer accountId);
 
-    List<Account> getAllaccounts();
+    List<Account> getAllAccounts();
 }
