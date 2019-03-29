@@ -7,6 +7,7 @@
         </layout>
     </appender>
 
+    <logger name="com.mdo" level="TRACE"/>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
