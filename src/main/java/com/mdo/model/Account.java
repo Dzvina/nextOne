@@ -21,7 +21,6 @@ public class Account {
     @Column(name = "money_amount")
     private String moneyAmount;
 
-    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Client client;

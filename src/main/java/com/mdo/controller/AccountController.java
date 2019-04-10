@@ -2,18 +2,17 @@ package com.mdo.controller;
 
 import com.mdo.model.Account;
 import com.mdo.service.AccountService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(value = "This is account controller")
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-    static final Logger LOG = LoggerFactory.getLogger(Account.class);
 
     @Autowired
     AccountService accountService;
