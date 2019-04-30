@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+import java.net.*;
+import java.lang.Object;
+
 @Entity
 @Table(name = "client")
 public class Client {
