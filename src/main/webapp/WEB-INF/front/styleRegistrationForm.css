@@ -9,6 +9,32 @@ body {
     /*background-size: 2400px 1400px;*/
 }
 
+a {
+    text-decoration: none;
+    /*border-bottom: 1px dotted;*/
+    padding-bottom: .1em;
+}
+
+a:link {
+    color: #BDB76B;
+}
+
+a:visited {
+    color: #808080;
+}
+
+a:focus {
+    color: #808080;
+}
+
+a:hover {
+    color: #808080;
+}
+
+a:active {
+    color: #BDB76B;
+}
+
 #intro {
     padding: 1px 0 1px 1px;
     background: url("images/metal.jpg") right top repeat-x;
@@ -40,6 +66,59 @@ body {
     letter-spacing: .4em;
     color: #000;
     margin: 10px 0 0 500px;
+}
+
+#nav {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin: 0 auto;
+    width: auto;
+}
+
+#nav ul li {
+    font-weight: normal;
+    /*text-transform: uppercase;*/
+    text-transform: full-width;
+    float: left;
+}
+
+#nav ul li a {
+    display: block;
+    padding: .5em;
+    border: 2px solid #808080;
+    border-radius: 0;
+    margin: .75em;
+    border-shadow: #000 3px 5px 6px;
+    font-size: 20px;
+}
+
+#nav ul a:link {
+    color: #000;
+}
+
+#nav ul a:visited {
+    color: #000;
+}
+
+#nav ul a:focus {
+    color: #FFD700;
+    border-color: #BDB76B
+}
+
+#nav ul a:hover {
+    color: #FFD700;
+    border-color: #BDB76B
+}
+
+#nav ul a:active {
+    color: #808080;
+    border-color: #808080;
+    border-radius: .9em;
 }
 
 #form{

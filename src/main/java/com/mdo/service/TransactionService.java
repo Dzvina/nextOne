@@ -1,5 +1,6 @@
 package com.mdo.service;
 
+import com.mdo.dao.TransactionDao;
 import com.mdo.dao.impl.TransactionDaoImpl;
 import com.mdo.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ public class TransactionService {
     }
 
     public Transaction getTransactionById(Integer transactionId) {
-        return transactionDao.getTransactionById(transactionId);
+        Transaction transaction = transactionDao.getTransactionById(transactionId);
+        return transaction;
     }
 
     public List<Transaction> getAllTransactions() {

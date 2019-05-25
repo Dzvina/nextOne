@@ -12,7 +12,7 @@
 
 
     <bean id="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/JavaScript/"/>
+        <property name="prefix" value="/WEB-INF/front/"/>
         <property name="suffix" value=".html"/>
     </bean>
 
